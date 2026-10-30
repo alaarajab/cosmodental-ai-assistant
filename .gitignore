@@ -1,0 +1,12 @@
+node_modules/
+.wrangler/
+.dev.vars
+public/admin.js
+eval/results-*.json
+*.log
+test/.mock-server.mjs
+experiments/.env
+experiments/docs/*.pdf
+.venv/
+.ipynb_checkpoints/
+__pycache__/

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cosmo Dental Assistant · Admin</title>
+  <style>
+    :root { --blue:#0b5ed7; --ink:#1b2430; --muted:#5b6675; --line:#dde3ea; }
+    * { box-sizing: border-box; }
+    body { font: 16px/1.5 system-ui, sans-serif; color: var(--ink); margin: 0; background: #f5f8fb; }
+    main { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; }
+    h1 { font-size: 1.5rem; margin: 0 0 4px; }
+    section { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-top: 20px; }
+    label { display: block; font-weight: 600; margin: 12px 0 4px; }
+    input, select { width: 100%; padding: 10px; border: 1px solid #b8c2cc; border-radius: 8px; font: inherit; }
+    button { margin-top: 14px; padding: 10px 18px; border: 0; border-radius: 8px; background: var(--blue); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    td button { margin: 0; padding: 4px 10px; background: #b42318; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); }
+    .note { color: var(--muted); font-size: .9rem; }
+    #status { margin-top: 12px; font-weight: 600; }
+    #status.error { color: #b42318; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Cosmo Dental Assistant — Admin</h1>
+  <p class="note">Upload clinic documents (aftercare instructions, insurance &amp; payment FAQ, office policies). <strong>Never upload patient records.</strong></p>
+
+  <section>
+    <form id="login">
+      <label for="token">Admin token</label>
+      <input id="token" type="password" autocomplete="current-password" required />
+      <button type="submit">Sign in</button>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+    <section>
+      <h2>Upload a PDF</h2>
+      <form id="upload">
+        <label for="file">PDF file</label>
+        <input id="file" type="file" accept="application/pdf" required />
+        <label for="title">Title shown in citations</label>
+        <input id="title" placeholder="e.g. Aftercare – Tooth Extraction" maxlength="120" />
+        <label for="lang">Document language</label>
+        <select id="lang"><option value="en">English</option><option value="es">Español</option></select>
+        <button type="submit">Upload &amp; index</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Documents</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Lang</th><th>Pages</th><th>Chunks</th><th>Added</th><th></th></tr></thead>
+        <tbody id="docs"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Usage</h2>
+      <p id="stats"></p>
+      <h3>Recent unanswered questions</h3>
+      <p class="note">These show what documents to add next.</p>
+      <ul id="unanswered"></ul>
+    </section>
+  </div>
+  <p id="status" role="status" aria-live="polite"></p>
+</main>
+<script type="module" src="/admin.js"></script>
+</body>
+</html>

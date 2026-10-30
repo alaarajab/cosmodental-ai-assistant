@@ -1,0 +1,34 @@
+{
+  "name": "cosmodental-assistant",
+  "version": "1.0.0",
+  "description": "RAG document Q&A assistant for Cosmo Dental (Cloudflare Workers AI + Vectorize + D1)",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "npm run build && wrangler dev --remote",
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.admin.json",
+    "test": "vitest run",
+    "db:init": "wrangler d1 execute cosmodental-assistant --remote --file=schema.sql",
+    "eval": "node eval/run-eval.mjs",
+    "build": "esbuild admin-src/admin.ts --bundle --format=esm --minify --target=es2022 --outfile=public/admin.js",
+    "mock": "npm run build && esbuild test/mock-server.ts --bundle --platform=node --format=esm --outfile=test/.mock-server.mjs --external:unpdf && node test/.mock-server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "unpdf": "^1.9.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261029.1",
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.156.0"
+  },
+  "type": "module",
+  "private": true
+}
