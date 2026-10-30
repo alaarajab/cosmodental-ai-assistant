@@ -1,0 +1,115 @@
+chunk,q,answerable,rank,top_score,latency_ms
+500,What is the address of the clinic?,True,1.0,0.58076715,1022
+500,What are your hours on Saturday?,True,1.0,0.5821905,198
+500,Are you open on Sunday?,True,1.0,0.58256394,204
+500,What is the clinic's email address?,True,1.0,0.63102394,159
+500,What languages does your team speak?,True,1.0,0.50195944,251
+500,Are you accepting new patients?,True,1.0,0.6377955,274
+500,What should I bring to my first visit?,True,2.0,0.5997317,188
+500,How do I cancel my appointment?,True,1.0,0.6653131,179
+500,Which dentist does root canals?,True,1.0,0.6324471,288
+500,Who can do my dental implant?,True,5.0,0.60139596,153
+500,Which dentist should I see for teeth whitening?,True,1.0,0.59737,166
+500,Is Dr. Hussain Akam an oral surgeon specialist?,True,1.0,0.6763794,173
+500,Who are the dental assistants?,True,2.0,0.5342539,244
+500,How often should I get a cleaning?,True,1.0,0.604098,182
+500,Do you have white fillings?,True,2.0,0.52376634,184
+500,Does getting an implant hurt?,True,1.0,0.71596277,196
+500,What kind of veneers do you offer?,True,1.0,0.5831344,179
+500,How long does a root canal take?,True,1.0,0.69248235,171
+500,When should my child first see a dentist?,True,1.0,0.7908392,174
+500,Do you offer braces or Invisalign?,True,1.0,0.61026466,191
+500,Do you take Delta Dental insurance?,True,1.0,0.6583685,239
+500,How much does a dental implant cost?,True,3.0,0.59152305,156
+500,"I have a toothache on Sunday night, what should I do?",True,1.0,0.51244986,230
+500,What medicine should I take for my tooth pain?,True,5.0,0.54623103,155
+500,Can I send my insurance details in this chat?,True,1.0,0.5744925,177
+500,¿Dónde está la clínica?,True,1.0,0.5341176,146
+500,¿Cuál es el horario del sábado?,True,1.0,0.5134907,151
+500,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,2.0,0.5860943,174
+500,¿Aceptan pacientes nuevos?,True,1.0,0.64111876,159
+500,¿Qué hago en una emergencia dental?,True,1.0,0.6804917,173
+500,What's the weather in Chicago tomorrow?,False,,0.37902296,189
+500,Can you recommend a good pizza place in Northlake?,False,,0.48695913,191
+500,What is the capital of France?,False,,0.30180228,178
+500,How do I reset my iPhone password?,False,,0.41627067,182
+500,Who won the World Series this year?,False,,0.26450995,185
+500,What time does the Walmart in Northlake close?,False,,0.54123557,203
+500,Write me a poem about cats.,False,,0.31541303,375
+500,¿Cuál es el precio de un Tesla Model 3?,False,,0.35756785,245
+800,What is the address of the clinic?,True,2.0,0.5701071,443
+800,What are your hours on Saturday?,True,1.0,0.5685596,182
+800,Are you open on Sunday?,True,1.0,0.58295,161
+800,What is the clinic's email address?,True,1.0,0.61288464,240
+800,What languages does your team speak?,True,1.0,0.46799725,159
+800,Are you accepting new patients?,True,2.0,0.5399239,297
+800,What should I bring to my first visit?,True,2.0,0.56915766,261
+800,How do I cancel my appointment?,True,1.0,0.65986395,162
+800,Which dentist does root canals?,True,1.0,0.6155257,253
+800,Who can do my dental implant?,True,3.0,0.6189826,207
+800,Which dentist should I see for teeth whitening?,True,1.0,0.6012455,257
+800,Is Dr. Hussain Akam an oral surgeon specialist?,True,2.0,0.6159003,226
+800,Who are the dental assistants?,True,2.0,0.53432983,588
+800,How often should I get a cleaning?,True,1.0,0.6210946,767
+800,Do you have white fillings?,True,1.0,0.52154714,205
+800,Does getting an implant hurt?,True,1.0,0.66187507,189
+800,What kind of veneers do you offer?,True,1.0,0.58290803,185
+800,How long does a root canal take?,True,1.0,0.665619,208
+800,When should my child first see a dentist?,True,1.0,0.7342703,162
+800,Do you offer braces or Invisalign?,True,1.0,0.5573175,153
+800,Do you take Delta Dental insurance?,True,1.0,0.587724,184
+800,How much does a dental implant cost?,True,3.0,0.61496675,182
+800,"I have a toothache on Sunday night, what should I do?",True,1.0,0.570993,411
+800,What medicine should I take for my tooth pain?,True,,0.5239306,151
+800,Can I send my insurance details in this chat?,True,1.0,0.5688708,262
+800,¿Dónde está la clínica?,True,1.0,0.5068641,182
+800,¿Cuál es el horario del sábado?,True,1.0,0.497319,305
+800,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,2.0,0.58617324,189
+800,¿Aceptan pacientes nuevos?,True,1.0,0.5367507,181
+800,¿Qué hago en una emergencia dental?,True,1.0,0.63996357,221
+800,What's the weather in Chicago tomorrow?,False,,0.3569676,224
+800,Can you recommend a good pizza place in Northlake?,False,,0.4998125,209
+800,What is the capital of France?,False,,0.31228566,197
+800,How do I reset my iPhone password?,False,,0.4189162,196
+800,Who won the World Series this year?,False,,0.27649474,169
+800,What time does the Walmart in Northlake close?,False,,0.5411894,272
+800,Write me a poem about cats.,False,,0.3065644,185
+800,¿Cuál es el precio de un Tesla Model 3?,False,,0.34749246,163
+1200,What is the address of the clinic?,True,2.0,0.5621864,173
+1200,What are your hours on Saturday?,True,1.0,0.55418956,210
+1200,Are you open on Sunday?,True,1.0,0.57815534,157
+1200,What is the clinic's email address?,True,2.0,0.59724885,178
+1200,What languages does your team speak?,True,1.0,0.43619478,161
+1200,Are you accepting new patients?,True,,0.5299561,149
+1200,What should I bring to my first visit?,True,2.0,0.56919116,281
+1200,How do I cancel my appointment?,True,1.0,0.644627,210
+1200,Which dentist does root canals?,True,1.0,0.6270009,161
+1200,Who can do my dental implant?,True,3.0,0.6159366,182
+1200,Which dentist should I see for teeth whitening?,True,1.0,0.6037484,185
+1200,Is Dr. Hussain Akam an oral surgeon specialist?,True,1.0,0.6154685,256
+1200,Who are the dental assistants?,True,3.0,0.53432983,184
+1200,How often should I get a cleaning?,True,1.0,0.60322535,162
+1200,Do you have white fillings?,True,1.0,0.5093729,263
+1200,Does getting an implant hurt?,True,1.0,0.64477444,200
+1200,What kind of veneers do you offer?,True,1.0,0.5827288,349
+1200,How long does a root canal take?,True,1.0,0.6292876,265
+1200,When should my child first see a dentist?,True,1.0,0.73437303,249
+1200,Do you offer braces or Invisalign?,True,1.0,0.5508613,217
+1200,Do you take Delta Dental insurance?,True,1.0,0.5596927,194
+1200,How much does a dental implant cost?,True,2.0,0.6171722,192
+1200,"I have a toothache on Sunday night, what should I do?",True,1.0,0.48364347,221
+1200,What medicine should I take for my tooth pain?,True,5.0,0.54775345,168
+1200,Can I send my insurance details in this chat?,True,2.0,0.5291631,229
+1200,¿Dónde está la clínica?,True,1.0,0.5043531,216
+1200,¿Cuál es el horario del sábado?,True,1.0,0.4815343,179
+1200,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,2.0,0.58617324,211
+1200,¿Aceptan pacientes nuevos?,True,,0.5266471,172
+1200,¿Qué hago en una emergencia dental?,True,1.0,0.63747656,174
+1200,What's the weather in Chicago tomorrow?,False,,0.39212555,166
+1200,Can you recommend a good pizza place in Northlake?,False,,0.49775177,240
+1200,What is the capital of France?,False,,0.31195894,230
+1200,How do I reset my iPhone password?,False,,0.4222278,189
+1200,Who won the World Series this year?,False,,0.25594458,181
+1200,What time does the Walmart in Northlake close?,False,,0.5411894,201
+1200,Write me a poem about cats.,False,,0.30159703,176
+1200,¿Cuál es el precio de un Tesla Model 3?,False,,0.31681845,195

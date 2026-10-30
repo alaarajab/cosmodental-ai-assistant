@@ -1,0 +1,77 @@
+config,q,answerable,answered,correct,cited,latency_ms,answer
+baseline,What is the address of the clinic?,True,True,True,True,596,"The address of Cosmo Dental Clinic is 159 E North Ave, Northlake, IL 60164, United States [2]."
+baseline,What are your hours on Saturday?,True,True,True,True,437,Cosmo Dental Clinic is open on Saturday from 9:00 AM to 2:00 PM [1].
+baseline,Are you open on Sunday?,True,True,True,True,501,"No, Cosmo Dental Clinic is closed on Sunday [1]."
+baseline,What is the clinic's email address?,True,True,True,True,609,The clinic email shown on the website is info@cosmodentalmail.com [1].
+baseline,What languages does your team speak?,True,True,True,True,549,"Our team speaks English, Spanish, Arabic, Urdu, and Hindi. [2]"
+baseline,Are you accepting new patients?,True,True,True,True,485,"Yes, Cosmo Dental Clinic welcomes new patients [2]. You can request an appointment online or call (708) 345-6313 [2]."
+baseline,What should I bring to my first visit?,True,True,True,True,686,"Please bring a photo ID, your dental insurance card (if you have one), a list of the medications you take, and recent dental X-rays, if you have them [2]."
+baseline,How do I cancel my appointment?,True,True,True,True,584,"To cancel or reschedule your appointment, please call Cosmo Dental Clinic at (708) 345-6313 as early as possible [1]."
+baseline,Which dentist does root canals?,True,True,True,True,614,Dr. Basel Abozor focuses on endodontics (root canal treatment) at Cosmo Dental Clinic [2].
+baseline,Who can do my dental implant?,True,True,True,True,636,"At Cosmo Dental, the dentists who plan and place implants are [1]. However, if you are looking for oral surgery and implants, Dr. Hussain Akam and Dr. Mohammed Abdul Haq are the dentists who focus on those areas [3]."
+baseline,Which dentist should I see for teeth whitening?,True,True,True,True,486,Dr. Asim Abdul Quader focuses on cosmetic dentistry [3].
+baseline,Is Dr. Hussain Akam an oral surgeon specialist?,True,True,True,True,858,"No, Dr. Hussain Akam is a General Dentist with a focus on oral surgery and implants [1][3]."
+baseline,Who are the dental assistants?,True,True,True,True,504,"Tom and Ashley are the dental assistants at Cosmo Dental Clinic. Tom supports dental procedures and patient care, while Ashley assists with procedures and makes sure every patient is comfortable [1]."
+baseline,How often should I get a cleaning?,True,True,True,True,808,Many people benefit from a check-up and cleaning about every six months. Your dentist at Cosmo Dental will recommend the schedule that is right for you [1].
+baseline,Do you have white fillings?,True,True,True,True,509,"Yes, Cosmo Dental uses tooth-colored filling material that blends in with your natural teeth [1]."
+baseline,Does getting an implant hurt?,True,True,True,True,589,"The implant procedure is done with local anesthesia, so most patients feel pressure rather than pain. Some soreness afterward is normal and usually short-lived [1]."
+baseline,What kind of veneers do you offer?,True,True,True,True,374,Cosmo Dental offers porcelain veneers [2].
+baseline,How long does a root canal take?,True,True,True,True,644,Many root canals are completed in one or two visits. Your dentist will tell you what to expect for your tooth. [2]
+baseline,When should my child first see a dentist?,True,True,True,True,749,"According to [1], you should bring your child by their first birthday or when the first tooth appears; every six months for check-ups; if your child has tooth pain or a chipped tooth; or if you notice spots or discoloration on the teeth. [2] also recommends a first dental visit by age one or within six months of the first tooth."
+baseline,Do you offer braces or Invisalign?,True,True,True,True,556,"Braces, Invisalign, and clear aligners are not listed among Cosmo Dental Clinic's services on the website. Please call Cosmo Dental Clinic at (708) 345-6313 to ask. [1]"
+baseline,Do you take Delta Dental insurance?,True,True,True,True,776,"We accept many dental insurance plans, but the website does not list specific plans. Please call Cosmo Dental Clinic at (708) 345-6313 with your plan name and member details and the team will check your coverage [1]."
+baseline,How much does a dental implant cost?,True,True,False,True,877,"Prices are not published because each treatment depends on your needs. Before any treatment begins, your dentist explains your options and the expected cost so you can decide with confidence, with no surprises. [3]"
+baseline,"I have a toothache on Sunday night, what should I do?",True,True,True,True,939,"Call 911 or go to the nearest emergency room for serious injuries, heavy bleeding, or swelling that affects breathing or swallowing. For other problems, call (708) 345-6313 when the office opens on Monday [1]."
+baseline,What medicine should I take for my tooth pain?,True,True,True,True,857,"I cannot provide medical advice. If you are experiencing tooth pain, I recommend calling (708) 345-6313 to schedule an appointment with one of our dentists. They will be able to examine you and provide a proper diagnosis and treatment plan."
+baseline,Can I send my insurance details in this chat?,True,True,True,True,599,"Please don't send your insurance details through the chat. Share health or insurance details with Cosmo Dental by phone or in person, not through the contact form, chat or email [1]."
+baseline,¿Dónde está la clínica?,True,True,True,True,552,"La clínica Cosmo Dental está ubicada en 159 E North Ave, Northlake, IL 60164, en North Avenue. [1]"
+baseline,¿Cuál es el horario del sábado?,True,True,True,True,542,El horario de Cosmo Dental el sábado es de 9:00 AM a 2:00 PM. [1]
+baseline,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,True,True,True,749,Dr. Basel Abozor se enfoca en endodoncia (tratamientos de conducto) en el Clínica Dental Cosmo. [2][3]
+baseline,¿Aceptan pacientes nuevos?,True,True,True,True,571,"Sí, Cosmo Dental Clinic recibe pacientes nuevos. Puedes solicitar una cita en línea en https://www.cosmodentalusa.com/contact/ o llamar al (708) 345-6313. [1]"
+baseline,¿Qué hago en una emergencia dental?,True,True,True,True,609,"Llame a Cosmo Dental Clinic lo antes posible al (708) 345-6313. Si tienes una lesión grave, sangrado intenso o hinchazón que afecta la respiración o la deglución, llama al 911 o ve a la sala de emergencias más cercana."
+baseline,What's the weather in Chicago tomorrow?,False,False,True,False,167,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Can you recommend a good pizza place in Northlake?,False,False,True,False,414,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What is the capital of France?,False,False,True,False,186,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How do I reset my iPhone password?,False,False,True,False,207,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Who won the World Series this year?,False,False,True,False,439,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What time does the Walmart in Northlake close?,False,False,True,False,368,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Write me a poem about cats.,False,False,True,False,174,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,¿Cuál es el precio de un Tesla Model 3?,False,False,True,False,163,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,What is the address of the clinic?,True,True,True,True,557,"The address of Cosmo Dental Clinic is 159 E North Ave, Northlake, IL 60164, United States [1][3]."
+tuned,What are your hours on Saturday?,True,True,True,True,446,Cosmo Dental Clinic is open on Saturday from 9:00 AM to 2:00 PM [1].
+tuned,Are you open on Sunday?,True,True,True,True,346,"No, Cosmo Dental Clinic is closed on Sunday [1]."
+tuned,What is the clinic's email address?,True,True,True,True,632,"The clinic's email address is info@cosmodentalmail.com [1]. Please do not send medical, dental, or insurance details by email."
+tuned,What languages does your team speak?,True,True,True,True,514,"Our team speaks English, Spanish, Arabic, Urdu, and Hindi [1]."
+tuned,Are you accepting new patients?,True,True,True,True,578,"Yes, Cosmo Dental Clinic welcomes new patients. You can request an appointment online at https://www.cosmodentalusa.com/contact/ or call (708) 345-6313. [1]"
+tuned,What should I bring to my first visit?,True,True,True,True,791,"Please bring a photo ID, your dental insurance card (if you have one), a list of the medications you take, and recent dental X-rays, if you have them [2][5]."
+tuned,How do I cancel my appointment?,True,True,True,True,455,"To cancel your appointment, please call Cosmo Dental Clinic at (708) 345-6313 as early as possible [1]."
+tuned,Which dentist does root canals?,True,True,True,True,564,Dr. Basel Abozor focuses on endodontics (root canal treatment) at Cosmo Dental Clinic [1].
+tuned,Who can do my dental implant?,True,True,False,True,394,Our dentists at Cosmo Dental plan and place implants in the Northlake office [2].
+tuned,Which dentist should I see for teeth whitening?,True,True,True,True,759,"You can see Dr. Asim Abdul Quader for teeth whitening, as he focuses on cosmetic dentistry [2]. However, you can also choose to see any of the other dentists at Cosmo Dental, and you can ask for a specific dentist when you call (708) 345-6313 [3]."
+tuned,Is Dr. Hussain Akam an oral surgeon specialist?,True,True,True,True,500,"No, Dr. Hussain Akam is a General Dentist, not a specialist. He focuses on dental surgery (oral surgery) and dental implant care, along with routine check-ups [1]."
+tuned,Who are the dental assistants?,True,True,True,True,449,The dental assistants at Cosmo Dental Clinic are Tom and Ashley [1].
+tuned,How often should I get a cleaning?,True,True,True,True,569,Many people benefit from a check-up and cleaning about every six months [1]. Your dentist at Cosmo Dental will recommend the schedule that is right for you [1].
+tuned,Do you have white fillings?,True,True,True,True,422,"Yes, we use tooth-colored filling material that blends in with your natural teeth [2]."
+tuned,Does getting an implant hurt?,True,True,True,True,527,"The implant procedure is done with local anesthesia, so most patients feel pressure rather than pain [1]. Some soreness afterward is normal and usually short-lived [1]."
+tuned,What kind of veneers do you offer?,True,True,True,True,389,We offer porcelain veneers. [1]
+tuned,How long does a root canal take?,True,True,True,True,468,Many root canals are completed in one or two visits [1]. Your dentist will tell you what to expect for your tooth [1].
+tuned,When should my child first see a dentist?,True,True,True,True,624,Bring your child by their first birthday or when the first tooth appears [1]. Many experts recommend a first dental visit by age one or within six months of the first tooth [1][2].
+tuned,Do you offer braces or Invisalign?,True,True,True,True,655,"Braces, Invisalign, and clear aligners are not listed among Cosmo Dental Clinic's services on the website. Please call Cosmo Dental Clinic at (708) 345-6313 to ask."
+tuned,Do you take Delta Dental insurance?,True,True,True,True,682,"Cosmo Dental Clinic works with many dental insurance plans, but the website does not list specific plans. Please call Cosmo Dental Clinic at (708) 345-6313 with your plan name and member details and the team will check your coverage [1]."
+tuned,How much does a dental implant cost?,True,True,True,True,542,"Prices are not published because each treatment depends on your needs [3][5]. For a cost question, please call Cosmo Dental Clinic at (708) 345-6313."
+tuned,"I have a toothache on Sunday night, what should I do?",True,True,True,True,517,Call Cosmo Dental at (708) 345-6313 as soon as possible. Emergency visits for tooth pain or a broken tooth are part of the clinic's care [1].
+tuned,What medicine should I take for my tooth pain?,True,True,True,True,856,"I cannot recommend any medicine or treatment for your tooth pain. Only a dentist can examine you and provide a proper diagnosis and treatment plan. Please call Cosmo Dental Clinic at (708) 345-6313 to book a visit. For a medical emergency, call 911. [5]"
+tuned,Can I send my insurance details in this chat?,True,True,True,True,501,"Please don't. To protect your privacy, share health or insurance details with Cosmo Dental by phone or in person, not through the chat or email. [1]"
+tuned,¿Dónde está la clínica?,True,True,True,True,575,"La clínica Cosmo Dental está ubicada en 159 E North Ave, Northlake, IL 60164, en North Avenue. [1][2]"
+tuned,¿Cuál es el horario del sábado?,True,True,True,True,608,Cosmo Dental está abierto el sábado de 9:00 AM a 2:00 PM. [1]
+tuned,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,True,True,True,704,El Dr. Basel Abozor se enfoca en endodoncia (tratamientos de conducto) en el Clínica Dental Cosmo [4].
+tuned,¿Aceptan pacientes nuevos?,True,True,True,True,664,"Sí, Cosmo Dental Clinic recibe pacientes nuevos. Puedes solicitar una cita en línea en https://www.cosmodentalusa.com/contact/ o llamar al (708) 345-6313. [1]"
+tuned,¿Qué hago en una emergencia dental?,True,True,True,True,841,"Llama a Cosmo Dental Clinic al (708) 345-6313 lo antes posible. Si tienes una lesión grave, sangrado intenso o hinchazón que afecta la respiración, llama al 911 o ve al hospital de emergencias más cercano. [1]"
+tuned,What's the weather in Chicago tomorrow?,False,False,True,False,358,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Can you recommend a good pizza place in Northlake?,False,False,True,False,158,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What is the capital of France?,False,False,True,False,183,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How do I reset my iPhone password?,False,False,True,False,269,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Who won the World Series this year?,False,False,True,False,371,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What time does the Walmart in Northlake close?,False,False,True,False,270,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Write me a poem about cats.,False,False,True,False,209,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,¿Cuál es el precio de un Tesla Model 3?,False,False,True,False,165,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.

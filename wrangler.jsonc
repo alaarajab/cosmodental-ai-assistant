@@ -24,8 +24,8 @@
     {
       "binding": "DB",
       "database_name": "cosmodental-assistant",
-      "database_id": "PASTE-DATABASE-ID-HERE"
-    }
+      "database_id": "b59c4cb2-fa3c-492f-975d-09721adf3e1c",
+    },
   ],
 
   "vars": {
@@ -34,7 +34,7 @@
     "TOP_K": "5",
     "MIN_SCORE": "0.45",
     "ALLOWED_ORIGINS": "https://www.cosmodentalusa.com,https://cosmodentalusa.com,http://localhost:5173",
-    "CLINIC_PHONE": "(708) 345-6313"
-  }
+    "CLINIC_PHONE": "(708) 345-6313",
+  },
   // Secret (not stored in this file): npx wrangler secret put ADMIN_TOKEN
 }

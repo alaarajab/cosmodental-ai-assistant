@@ -124,7 +124,31 @@ jupyter notebook experiments.ipynb
 Supporting Worker endpoints (admin token required): `POST /api/admin/ask` (custom `namespace`/`topK`/`minScore`, optional `retrieveOnly`) and `DELETE /api/admin/namespaces/exp-...`.
 
 ## Results
-_Paste `experiments/results/summary.md` here after running the notebook on real clinic documents, then add live usage from the admin page: questions per month, % answered from documents, running cost $0._
+Live on Cloudflare Workers AI (Oct 29–30, 2026). Test set: **38 questions** written from the clinic FAQ: 30 in scope (incl. 5 in Spanish and 4 guardrail questions about medicine, specialists, prices and privacy) and 8 out of scope. Graded automatically: in-scope answers must contain the expected facts, and out-of-scope questions must be refused. Full data: `experiments/results*/`.
+
+### Retrieval: which chunk size finds the right page? (embedding search only)
+| Chunk size | Hit@1 | Hit@5 | MRR |
+|---|---|---|---|
+| 500 chars | **83%** | **100%** | **0.89** |
+| 800 chars (live) | 77% | 97% | 0.86 |
+| 1200 chars | 67% | 93% | 0.78 |
+
+### End to end: does the assistant answer correctly? (800 chars, TOP_K 5, MIN_SCORE 0.45)
+| Run | Change | Accuracy | In-scope answered | Out-of-scope refused | Cited |
+|---|---|---|---|---|---|
+| 1 | prompt v1 | 89% | 87% | 100% | 100% |
+| 3 | **prompt v2** | **97%** | **100%** | 100% | 100% |
+
+Average answer time ≈ 0.6 s. Running cost: **$0** (Workers free plan).
+
+### What the experiments showed
+1. **The first prompt was over-cautious.** When the FAQ's answer was "not listed / prices aren't published / please call", the model treated it as no answer, and it dodged the specialist and medicine questions entirely: 4 false refusals. Prompt v2 defines those redirects as valid answers and limits `NO_ANSWER` to off-topic questions. Result: 0 false refusals, still 8/8 correct refusals.
+2. **Better retrieval ≠ better answers.** 500-character chunks rank the right page best, but they split the dentists' names away from the implant answer, so end-to-end accuracy tied at 97%. The live assistant stays at 800 characters.
+3. **Similarity scores alone can't separate in-scope from off-topic.** Scores overlap around 0.47–0.52 (e.g. "Walmart in Northlake" scores higher than some real questions). `MIN_SCORE` 0.45 is a cheap first filter that skips the LLM call, and the prompt's `NO_ANSWER` rule is the second layer.
+4. **A measurement bug I caught in my own experiment.** Run 2 queried right after re-indexing and hit Vectorize's indexing delay, producing a false 29%. The notebook now waits until the index is searchable before asking anything.
+5. **Read the answers, not just the score.** An early version of prompt v2 turned "not listed" into "we don't offer braces", an overstatement the keyword grader missed. Reading the answers caught it, and the rule was tightened.
+
+Run 1 also had a sample PDF mixed into the experiment index; it was removed before run 3.
 
 ## Roadmap
 - Follow-up questions (rewrite the question using chat history before retrieval)

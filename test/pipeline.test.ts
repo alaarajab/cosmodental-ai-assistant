@@ -62,6 +62,10 @@ describe("prompt + guardrails", () => {
   it("forbids calling dentists specialists and asks for the right language", () => {
     expect(systemPrompt("es", "x")).toMatch(/Never call any of them a specialist/);
     expect(systemPrompt("es", "x")).toMatch(/reply in Spanish/);
+    // v2: redirect-style answers ("not listed, please call") must not become NO_ANSWER
+    expect(systemPrompt("en", "(708) 345-6313")).toMatch(/That IS an answer/);
+    expect(systemPrompt("en", "x")).toMatch(/do not mention the topic of the question at all/);
+    expect(systemPrompt("en", "x")).toMatch(/Never claim the clinic does not offer something/);
   });
   it("redacts emails and phone numbers before logging", () => {
     expect(redact("I'm jane@x.com, call 708-555-1234")).toBe("I'm [email], call [number]");

@@ -1,0 +1,77 @@
+config,q,answerable,answered,correct,cited,latency_ms,answer
+baseline,What is the address of the clinic?,True,False,False,False,256,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What are your hours on Saturday?,True,False,False,False,197,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Are you open on Sunday?,True,False,False,False,199,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What is the clinic's email address?,True,False,False,False,210,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What languages does your team speak?,True,False,False,False,200,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Are you accepting new patients?,True,False,False,False,295,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What should I bring to my first visit?,True,False,False,False,206,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How do I cancel my appointment?,True,False,False,False,350,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Which dentist does root canals?,True,False,False,False,230,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Who can do my dental implant?,True,False,False,False,237,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Which dentist should I see for teeth whitening?,True,False,False,False,252,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Is Dr. Hussain Akam an oral surgeon specialist?,True,False,False,False,385,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Who are the dental assistants?,True,False,False,False,191,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How often should I get a cleaning?,True,False,False,False,188,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Do you have white fillings?,True,False,False,False,195,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Does getting an implant hurt?,True,False,False,False,236,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What kind of veneers do you offer?,True,False,False,False,314,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How long does a root canal take?,True,False,False,False,210,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,When should my child first see a dentist?,True,False,False,False,373,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Do you offer braces or Invisalign?,True,False,False,False,233,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Do you take Delta Dental insurance?,True,False,False,False,187,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How much does a dental implant cost?,True,False,False,False,173,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,"I have a toothache on Sunday night, what should I do?",True,True,True,True,1106,"For a serious injury, heavy bleeding, or swelling that affects breathing or swallowing, call 911 or go to the nearest emergency room. Since it's Sunday night and the office is closed, call (708) 345-6313 when the office opens on Monday. [1][3]"
+baseline,What medicine should I take for my tooth pain?,True,True,True,True,771,"I cannot provide medical advice. If you are experiencing tooth pain, please call (708) 345-6313 to schedule an appointment with one of our dentists. They will be able to examine you and provide a proper diagnosis and treatment plan."
+baseline,Can I send my insurance details in this chat?,True,False,False,False,237,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,¿Dónde está la clínica?,True,True,True,True,833,"La clínica Cosmo Dental está ubicada en 159 E North Ave, Northlake, IL 60164, en North Avenue. Es un corto viaje desde Melrose Park, Stone Park, Franklin Park, Elmhurst, Bellwood, Berkeley y Chicago. [1]"
+baseline,¿Cuál es el horario del sábado?,True,False,False,False,190,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+baseline,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,False,False,False,256,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+baseline,¿Aceptan pacientes nuevos?,True,False,False,False,198,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+baseline,¿Qué hago en una emergencia dental?,True,False,False,False,184,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+baseline,What's the weather in Chicago tomorrow?,False,False,True,False,172,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Can you recommend a good pizza place in Northlake?,False,False,True,False,175,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What is the capital of France?,False,False,True,False,172,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,How do I reset my iPhone password?,False,False,True,False,163,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Who won the World Series this year?,False,False,True,False,191,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,What time does the Walmart in Northlake close?,False,False,True,False,205,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,Write me a poem about cats.,False,False,True,False,266,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+baseline,¿Cuál es el precio de un Tesla Model 3?,False,False,True,False,161,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,What is the address of the clinic?,True,False,False,False,245,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What are your hours on Saturday?,True,True,True,True,531,Cosmo Dental is open on Saturday from 9:00 AM to 2:00 PM [1].
+tuned,Are you open on Sunday?,True,False,False,False,221,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What is the clinic's email address?,True,False,False,False,200,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What languages does your team speak?,True,False,False,False,167,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Are you accepting new patients?,True,False,False,False,192,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What should I bring to my first visit?,True,False,False,False,191,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How do I cancel my appointment?,True,False,False,False,311,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Which dentist does root canals?,True,False,False,False,332,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Who can do my dental implant?,True,True,True,True,881,"Our dentists, Dr. Hussain Akam and Dr. Mohammed Abdul Haq, can plan and place dental implants in our Northlake office [1]. They focus on oral surgery and implants [3]."
+tuned,Which dentist should I see for teeth whitening?,True,False,False,False,174,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Is Dr. Hussain Akam an oral surgeon specialist?,True,False,False,False,255,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Who are the dental assistants?,True,False,False,False,174,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How often should I get a cleaning?,True,True,True,True,550,"You should get a cleaning about every six months, or as your dentist at Cosmo Dental recommends [1]."
+tuned,Do you have white fillings?,True,False,False,False,245,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Does getting an implant hurt?,True,True,True,True,590,"The implant procedure is done with local anesthesia, so most patients feel pressure rather than pain. Some soreness afterward is normal and usually short-lived [1]."
+tuned,What kind of veneers do you offer?,True,False,False,False,270,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How long does a root canal take?,True,False,False,False,210,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,When should my child first see a dentist?,True,False,False,False,170,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Do you offer braces or Invisalign?,True,True,True,True,948,We do not offer braces or Invisalign. Please call (708) 345-6313 to ask about other orthodontic options or to schedule an appointment.
+tuned,Do you take Delta Dental insurance?,True,False,False,False,251,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How much does a dental implant cost?,True,True,True,True,723,Prices for dental implants are not published because each treatment depends on your needs [3]. Your dentist will explain your options and the expected cost before any treatment begins [3]. Call (708) 345-6313 to check your coverage and discuss pricing with our team.
+tuned,"I have a toothache on Sunday night, what should I do?",True,True,True,True,685,"For a toothache on Sunday night, call Cosmo Dental at (708) 345-6313 as soon as possible. Since the office is closed, for serious injuries, heavy bleeding or swelling that affects breathing, call 911 or go to the nearest emergency room. For other problems, call (708) 345-6313 when the office opens on Monday. [1]"
+tuned,What medicine should I take for my tooth pain?,True,True,True,True,650,"I cannot recommend any medicine for your tooth pain.  A dentist must examine you to determine the cause of your tooth pain and recommend the best course of treatment. Please call (708) 345-6313 to schedule an appointment. For a medical emergency, call 911."
+tuned,Can I send my insurance details in this chat?,True,True,True,True,494,"Please don't send your insurance details through this chat. Share them by phone or in person, not through the contact form, chat, or email, to protect your privacy [1]."
+tuned,¿Dónde está la clínica?,True,False,False,False,212,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,¿Cuál es el horario del sábado?,True,False,False,False,163,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,¿Qué dentista hace tratamientos de conducto (endodoncia)?,True,False,False,False,185,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,¿Aceptan pacientes nuevos?,True,True,True,True,585,"Sí, Cosmo Dental Clinic acepta pacientes nuevos. Pueden solicitar una cita en línea en https://www.cosmodentalusa.com/contact/ o llamar al (708) 345-6313. [1]"
+tuned,¿Qué hago en una emergencia dental?,True,False,False,False,205,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
+tuned,What's the weather in Chicago tomorrow?,False,False,True,False,268,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Can you recommend a good pizza place in Northlake?,False,False,True,False,231,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What is the capital of France?,False,False,True,False,215,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,How do I reset my iPhone password?,False,False,True,False,162,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Who won the World Series this year?,False,False,True,False,177,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,What time does the Walmart in Northlake close?,False,False,True,False,389,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,Write me a poem about cats.,False,False,True,False,207,I couldn't find that in our documents. Please call Cosmo Dental at (708) 345-6313 and our team will be happy to help.
+tuned,¿Cuál es el precio de un Tesla Model 3?,False,False,True,False,276,No encontré esa información en nuestros documentos. Por favor llame a Cosmo Dental al (708) 345-6313 y con gusto le ayudamos.
