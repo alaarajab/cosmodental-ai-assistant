@@ -33,7 +33,7 @@
     "CHAT_MODEL": "@cf/meta/llama-3.1-8b-instruct-fast",
     "TOP_K": "5",
     "MIN_SCORE": "0.45",
-    "ALLOWED_ORIGINS": "https://www.cosmodentalusa.com,https://cosmodentalusa.com,http://localhost:5173",
+    "ALLOWED_ORIGINS": "https://www.cosmodentalusa.com,https://cosmodentalusa.com,http://localhost:3000",
     "CLINIC_PHONE": "(708) 345-6313",
   },
   // Secret (not stored in this file): npx wrangler secret put ADMIN_TOKEN
