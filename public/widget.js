@@ -53,25 +53,43 @@
     },
   };
 
+  // Sizes are in rem so the chat follows the site's A / A+ / A++ text-size setting.
+  // The text box is never below 16px: iPhone Safari zooms the whole page when a smaller input is tapped.
+  var FONT = 'system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif';
   var css =
-    ".cdw-btn{position:fixed;right:20px;bottom:20px;z-index:2147483000;border:0;border-radius:999px;padding:14px 20px;background:#0b5ed7;color:#fff;font:600 16px/1 system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer}" +
-    ".cdw-btn:focus-visible,.cdw-panel button:focus-visible,.cdw-panel input:focus-visible{outline:3px solid #ffbf47;outline-offset:2px}" +
-    ".cdw-panel{position:fixed;right:20px;bottom:84px;z-index:2147483000;width:min(380px,calc(100vw - 40px));height:min(560px,calc(100vh - 120px));display:flex;flex-direction:column;background:#fff;color:#1b2430;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.3);font:15px/1.45 system-ui,sans-serif;overflow:hidden}" +
+    ".cdw-btn,.cdw-panel,.cdw-panel *{box-sizing:border-box;font-family:" +
+    FONT +
+    ";letter-spacing:normal;text-transform:none}" +
+    ".cdw-btn{position:fixed;right:20px;bottom:20px;z-index:2147483000;display:flex;align-items:center;gap:.5rem;border:0;border-radius:999px;padding:.8rem 1.15rem;background:#0b5ed7;color:#fff;font-size:1rem;font-weight:600;line-height:1;box-shadow:0 6px 20px rgba(0,0,0,.25);cursor:pointer}" +
+    ".cdw-btn svg{width:1.35rem;height:1.35rem;flex:none;fill:currentColor}" +
+    ".cdw-btn:focus-visible,.cdw-panel button:focus-visible,.cdw-panel input:focus-visible,.cdw-log:focus-visible{outline:3px solid #ffbf47;outline-offset:2px}" +
+    ".cdw-panel{position:fixed;right:20px;bottom:5.5rem;z-index:2147483000;width:min(24rem,calc(100vw - 40px));height:min(35rem,calc(100vh - 8rem));height:min(35rem,calc(100dvh - 8rem));display:flex;flex-direction:column;background:#fff;color:#1b2430;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.3);font-size:.9375rem;line-height:1.45;overflow:hidden}" +
     ".cdw-panel[hidden]{display:none}" +
-    ".cdw-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#0b5ed7;color:#fff}" +
-    ".cdw-head h2{margin:0;font-size:16px;color:#fff}" +
-    ".cdw-head button{background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px}" +
-    ".cdw-log{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:10px}" +
-    ".cdw-msg{max-width:88%;padding:9px 12px;border-radius:12px;white-space:pre-wrap;word-wrap:break-word}" +
+    ".cdw-head{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;background:#0b5ed7;color:#fff}" +
+    ".cdw-head h2{margin:0;font-size:1rem;font-weight:700;line-height:1.3;color:#fff}" +
+    ".cdw-head button{background:none;border:0;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;padding:.25rem .5rem;min-width:44px;min-height:44px}" +
+    ".cdw-log{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:.75rem 1rem;display:flex;flex-direction:column;gap:.6rem}" +
+    ".cdw-msg{max-width:88%;padding:.55rem .75rem;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}" +
     ".cdw-bot{background:#eef3f8;align-self:flex-start}" +
     ".cdw-user{background:#0b5ed7;color:#fff;align-self:flex-end}" +
-    ".cdw-src{display:block;margin-top:6px;font-size:12.5px;color:#4a5563}" +
-    ".cdw-note{font-size:12.5px;color:#4a5563;margin:0}" +
-    ".cdw-form{display:flex;gap:8px;padding:10px;border-top:1px solid #dde3ea}" +
-    ".cdw-form input{flex:1;min-width:0;padding:10px;border:1px solid #8a96a3;border-radius:8px;font:inherit;color:#1b2430}" +
-    ".cdw-form button{border:0;border-radius:8px;padding:0 14px;background:#0b5ed7;color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}" +
+    ".cdw-src{display:block;margin-top:.35rem;font-size:.8rem;color:#4a5563}" +
+    ".cdw-note{font-size:.8rem;color:#4a5563;margin:0}" +
+    ".cdw-form{display:flex;gap:.5rem;padding:.6rem;border-top:1px solid #dde3ea}" +
+    ".cdw-form input{flex:1;min-width:0;padding:.6rem;border:1px solid #8a96a3;border-radius:8px;font-size:max(16px,1rem);color:#1b2430;background:#fff}" +
+    ".cdw-form button{flex:none;border:0;border-radius:8px;padding:0 .9rem;background:#0b5ed7;color:#fff;font-size:.9375rem;font-weight:600;cursor:pointer;min-height:44px}" +
     ".cdw-form button:disabled{opacity:.6;cursor:default}" +
-    "@media (max-width:480px){.cdw-btn{right:12px;bottom:12px;padding:12px 16px;font-size:15px}.cdw-panel{right:8px;left:8px;width:auto;bottom:72px;height:calc(100vh - 96px)}}";
+    // Phones: round icon button; panel ~70% of the screen with equal side margins, above the iPhone home bar.
+    "@media (max-width:480px){" +
+    ".cdw-btn{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:56px;height:56px;padding:0;justify-content:center;border-radius:50%}" +
+    ".cdw-btn svg{width:26px;height:26px}" +
+    ".cdw-btn .cdw-label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}" +
+    ".cdw-panel{left:12px;right:12px;width:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));height:70vh;height:70dvh;max-height:calc(100dvh - 110px)}}" +
+    // The site's high-contrast mode (class on <html>)
+    "html.high-contrast .cdw-btn,html.high-contrast .cdw-head,html.high-contrast .cdw-user,html.high-contrast .cdw-form button{background:#000;color:#fff;outline:2px solid #fff}" +
+    "html.high-contrast .cdw-panel{border:2px solid #000;color:#000}" +
+    "html.high-contrast .cdw-bot{background:#fff;color:#000;border:1px solid #000}" +
+    "html.high-contrast .cdw-src,html.high-contrast .cdw-note{color:#000}" +
+    "html.high-contrast .cdw-form input{border:2px solid #000;color:#000}";
 
   function el(tag, attrs, text) {
     var e = document.createElement(tag);
@@ -90,6 +108,11 @@
     "aria-expanded": "false",
     "aria-controls": "cdw-panel",
   });
+  // Chat-bubble icon (decorative) + text label. On phones the label is visually hidden but still read aloud.
+  btn.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm3 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm5 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>';
+  var btnLabel = el("span", { class: "cdw-label" });
+  btn.appendChild(btnLabel);
   var panel = el("div", {
     class: "cdw-panel",
     id: "cdw-panel",
@@ -140,7 +163,7 @@
     if (next === lang) return;
     lang = next;
     T = STRINGS[lang];
-    btn.textContent = T.open;
+    btnLabel.textContent = T.open;
     title.textContent = T.title;
     close.setAttribute("aria-label", T.close);
     input.setAttribute("placeholder", T.placeholder);

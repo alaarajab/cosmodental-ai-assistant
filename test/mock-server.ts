@@ -19,7 +19,7 @@ createServer(async (req, res) => {
   if (url.pathname === "/" || url.pathname === "/es/") {
     const es = url.pathname === "/es/";
     res.writeHead(200, { "content-type": "text/html" });
-    res.end(`<!doctype html><html lang="${es ? "es" : "en"}"><body style="font-family:sans-serif;padding:40px"><h1>Cosmo Dental (test page)</h1><script src="/widget.js" defer></script></body></html>`); return;
+    res.end(`<!doctype html><html lang="${es ? "es" : "en"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cosmo Dental (test page)</title></head><body style="font-family:sans-serif;padding:16px"><h1>Cosmo Dental (test page)</h1><script src="/widget.js" defer></script></body></html>`); return;
   }
   const f = join(root, url.pathname);
   if (existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".js") ? "text/javascript" : "text/html" }); res.end(readFileSync(f)); return; }
