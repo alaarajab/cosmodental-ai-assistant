@@ -6,6 +6,8 @@ import { chunkPage, normalize, removeRepeatedLines, splitSentences } from "../sr
 import worker from "../src/index";
 import { citedNumbers, isNoAnswer, systemPrompt } from "../src/prompt";
 import { redact, safeEqual } from "../src/util";
+import { smallTalk } from "../src/smalltalk";
+import { suggestLinks } from "../src/links";
 import { fakeEnv } from "./fakes";
 
 const pdf = readFileSync(fileURLToPath(new URL("./fixtures/office-info-SAMPLE.pdf", import.meta.url) as any));
@@ -74,6 +76,40 @@ describe("prompt + guardrails", () => {
     expect(safeEqual("abc", "abc")).toBe(true);
     expect(safeEqual("abc", "abd")).toBe(false);
     expect(safeEqual("abc", "abcd")).toBe(false);
+  });
+});
+
+describe("small talk", () => {
+  it("recognizes greetings, thanks, goodbyes and identity questions in English and Spanish", () => {
+    expect(smallTalk("Hi!", "en")?.kind).toBe("greeting");
+    expect(smallTalk("good morning cosmo dental", "en")?.kind).toBe("greeting");
+    expect(smallTalk("Hello, how are you?", "en")?.kind).toBe("howareyou");
+    expect(smallTalk("Thank you so much!", "en")?.kind).toBe("thanks");
+    expect(smallTalk("bye 👋", "en")?.kind).toBe("bye");
+    expect(smallTalk("Are you a bot?", "en")?.kind).toBe("who");
+    expect(smallTalk("¡Hola!", "en")).toMatchObject({ kind: "greeting", lang: "es" }); // replies in the language written
+    expect(smallTalk("Muchas gracias", "en")).toMatchObject({ kind: "thanks", lang: "es" });
+    expect(smallTalk("buenos días", "es")?.answer).toMatch(/Hola/);
+  });
+
+  it("does not swallow real questions that start with a greeting", () => {
+    expect(smallTalk("Hi, what are your hours on Saturday?", "en")).toBeNull();
+    expect(smallTalk("Hola, ¿aceptan pacientes nuevos?", "es")).toBeNull();
+    expect(smallTalk("Do you do implants?", "en")).toBeNull();
+  });
+});
+
+describe("action links", () => {
+  it("adds only verified clinic links, chosen by topic", () => {
+    expect(suggestLinks("How can I book an appointment?", "Use the form on the Contact page.", true, "en").map((l) => l.kind)).toEqual(["book"]);
+    expect(suggestLinks("Where is the clinic?", "159 E North Ave, Northlake.", true, "en")[0]).toMatchObject({ kind: "directions", url: expect.stringContaining("google.com/maps") });
+    expect(suggestLinks("I have a toothache", "Call us as soon as possible.", true, "en")[0]).toMatchObject({ kind: "call", url: "tel:+17083456313" });
+    expect(suggestLinks("¿Aceptan pacientes nuevos?", "Sí.", true, "es")[0]).toMatchObject({ label: "Pedir cita en línea", url: "https://www.cosmodentalusa.com/es/contact/" });
+    expect(suggestLinks("What veneers do you offer?", "Porcelain veneers.", true, "en")).toEqual([]);
+  });
+
+  it("gives a Call button when the assistant could not answer", () => {
+    expect(suggestLinks("weather?", "I couldn't find that.", false, "en").map((l) => l.kind)).toEqual(["call"]);
   });
 });
 
@@ -205,5 +241,22 @@ describe("end-to-end through the Worker", () => {
     expect((await bad({ namespace: "prod" })).status).toBe(400);
     expect((await bad({ chunkMax: 50 })).status).toBe(400);
     expect((await bad({ chunkMax: 400, chunkOverlap: 300 })).status).toBe(400);
+  });
+
+  it("answers greetings instantly without search or the LLM, with Book and Call buttons", async () => {
+    const env = fakeEnv();
+    const before = { ...env.AI.calls };
+    const body = (await (await ask(env, "Hello!")).json()) as any;
+    expect(body).toMatchObject({ answered: true, smallTalk: "greeting" });
+    expect(body.answer).toMatch(/Welcome to Cosmo Dental/);
+    expect(body.links.map((l: any) => l.kind)).toEqual(["book", "call"]);
+    expect(env.AI.calls).toEqual(before);
+  });
+
+  it("returns action links with normal answers", async () => {
+    const { env } = await setup();
+    const body = (await (await ask(env, "Where is Cosmo Dental located?")).json()) as any;
+    expect(body.answered).toBe(true);
+    expect(body.links.some((l: any) => l.kind === "directions")).toBe(true);
   });
 });

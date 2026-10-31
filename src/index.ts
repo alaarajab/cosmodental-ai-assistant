@@ -13,6 +13,8 @@ import {
   retrieve,
   type Env,
 } from "./rag";
+import { smallTalk } from "./smalltalk";
+import { smallTalkLinks, suggestLinks } from "./links";
 import { json, safeEqual } from "./util";
 
 const MAX_QUESTION = 500;
@@ -71,11 +73,22 @@ export default {
         if (question.length > MAX_QUESTION) return json({ error: "Question is too long" }, 400, headers);
         const lang = asLang(body.lang);
 
+        // Greetings, thanks, goodbyes: friendly instant reply, no search or LLM (not logged as questions).
+        const st = smallTalk(question, lang);
+        if (st) {
+          return json(
+            { answer: st.answer, answered: true, smallTalk: st.kind, sources: [], links: smallTalkLinks(st.kind, st.lang), topScore: 0, latencyMs: 0 },
+            200,
+            headers,
+          );
+        }
+
         const start = Date.now();
         const result = await answerQuestion(env, question, lang);
         const latency = Date.now() - start;
         await logQuestion(env, question, lang, result, latency).catch(() => {});
-        return json({ ...result, latencyMs: latency }, 200, headers);
+        const links = suggestLinks(question, result.answer, result.answered, lang);
+        return json({ ...result, links, latencyMs: latency }, 200, headers);
       }
 
       /* ---------- Admin API (Bearer ADMIN_TOKEN) ---------- */
