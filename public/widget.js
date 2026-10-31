@@ -78,6 +78,7 @@
     "@media (max-width:480px){" +
     ".cdw-btn{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:56px;height:56px;padding:0;justify-content:center;border-radius:50%}" +
     ".cdw-btn svg{width:26px;height:26px}" +
+    ".cdw-link{padding:.3rem .7rem;font-size:.8125rem}.cdw-links{gap:.35rem}" +
     ".cdw-btn .cdw-label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}" +
     ".cdw-panel{left:12px;right:12px;width:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));height:70vh;height:70dvh;max-height:calc(100dvh - 110px)}}" +
     // The site's high-contrast mode (class on <html>)
@@ -171,6 +172,21 @@
     return m;
   }
 
+  // Buttons on the welcome message (Book online / Call / Get directions), served by the assistant so the
+  // links live in one place (src/links.ts). If the request fails, the welcome message simply has no buttons.
+  var welcomeCache = {};
+  function loadWelcomeLinks(node, forLang) {
+    if (welcomeCache[forLang]) return renderLinks(node, welcomeCache[forLang]);
+    fetch(new URL("/api/welcome?lang=" + forLang, script.src).href)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.links) return;
+        welcomeCache[forLang] = d.links;
+        renderLinks(node, d.links);
+      })
+      .catch(function () {});
+  }
+
   var lang = null;
   var T = STRINGS.en;
 
@@ -187,7 +203,8 @@
     input.setAttribute("placeholder", T.placeholder);
     input.setAttribute("aria-label", T.placeholder);
     send.textContent = T.send;
-    add("cdw-bot", T.intro);
+    var intro = add("cdw-bot", T.intro);
+    loadWelcomeLinks(intro, lang);
     log.appendChild(el("p", { class: "cdw-note" }, T.privacy));
   }
   syncLang();

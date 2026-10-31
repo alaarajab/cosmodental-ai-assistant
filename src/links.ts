@@ -59,3 +59,8 @@ export function suggestLinks(question: string, answer: string, answered: boolean
 export function smallTalkLinks(kind: SmallTalkKind, lang: Lang): ActionLink[] {
   return kind === "greeting" || kind === "howareyou" ? [make("book", lang), make("call", lang)] : [];
 }
+
+/** Buttons on the chat's first (welcome) message. */
+export function welcomeLinks(lang: Lang): ActionLink[] {
+  return [make("book", lang), make("call", lang), make("directions", lang)];
+}

@@ -14,7 +14,7 @@ import {
   type Env,
 } from "./rag";
 import { smallTalk } from "./smalltalk";
-import { smallTalkLinks, suggestLinks } from "./links";
+import { smallTalkLinks, suggestLinks, welcomeLinks } from "./links";
 import { json, safeEqual } from "./util";
 
 const MAX_QUESTION = 500;
@@ -38,7 +38,7 @@ function cors(req: Request, env: Env): Record<string, string> {
   return allowed.includes(origin)
     ? {
         "access-control-allow-origin": origin,
-        "access-control-allow-methods": "POST, OPTIONS",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
         "access-control-allow-headers": "content-type",
         vary: "origin",
       }
@@ -58,6 +58,14 @@ export default {
     const path = url.pathname.replace(/\/+$/, "");
 
     try {
+      /* ---------- Welcome buttons for the chat's first message ---------- */
+      if (path === "/api/welcome" && req.method === "GET") {
+        return json({ links: welcomeLinks(asLang(url.searchParams.get("lang"))) }, 200, {
+          ...cors(req, env),
+          "cache-control": "public, max-age=3600",
+        });
+      }
+
       /* ---------- Public chat ---------- */
       if (path === "/api/chat") {
         const headers = cors(req, env);

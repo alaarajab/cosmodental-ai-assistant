@@ -259,4 +259,13 @@ describe("end-to-end through the Worker", () => {
     expect(body.answered).toBe(true);
     expect(body.links.some((l: any) => l.kind === "directions")).toBe(true);
   });
+
+  it("serves welcome buttons in the page language with CORS", async () => {
+    const env = fakeEnv();
+    const res = await call(env, "/api/welcome?lang=es", { headers: { origin: "https://www.cosmodentalusa.com" } });
+    expect(res.headers.get("access-control-allow-origin")).toBe("https://www.cosmodentalusa.com");
+    const body = (await res.json()) as any;
+    expect(body.links.map((l: any) => l.kind)).toEqual(["book", "call", "directions"]);
+    expect(body.links[0].label).toBe("Pedir cita en línea");
+  });
 });
