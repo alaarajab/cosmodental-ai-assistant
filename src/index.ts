@@ -123,8 +123,9 @@ export default {
             chunkMax?: number;
             chunkOverlap?: number;
           };
-          const title = (b.title ?? "").trim().slice(0, 120);
-          if (!title || !b.filename || !b.pages) return json({ error: "title, filename and pages are required" }, 400);
+          const title = (typeof b.title === "string" ? b.title : "").trim().slice(0, 120);
+          if (!title || typeof b.filename !== "string" || !b.filename || !Number.isInteger(b.pages) || b.pages! < 1)
+            return json({ error: "title, filename and pages are required" }, 400);
           const namespace = b.namespace ?? LIVE;
           if (!isValidNamespace(namespace)) return json({ error: "namespace must be 'live' or 'exp-...'" }, 400);
           const chunkMax = Math.floor(b.chunkMax ?? 800);
@@ -135,7 +136,7 @@ export default {
           await env.DB.prepare(
             "INSERT INTO documents (id, title, filename, lang, namespace, chunk_max, chunk_overlap, pages, chunk_count) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)",
           )
-            .bind(id, title, b.filename.slice(0, 200), asLang(b.lang), namespace, chunkMax, chunkOverlap, Math.floor(b.pages))
+            .bind(id, title, b.filename.slice(0, 200), asLang(b.lang), namespace, chunkMax, chunkOverlap, b.pages)
             .run();
           return json({ id }, 201);
         }
