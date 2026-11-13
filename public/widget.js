@@ -124,7 +124,15 @@
   document.body.appendChild(btn);
 
   // Make phone numbers and links to the clinic's own pages tappable. Built with DOM nodes, never innerHTML.
-  var SAFE_HOSTS = /(^|\.)(cosmodentalusa\.com|google\.com|g\.page|facebook\.com|instagram\.com|yelp\.com)$/;
+  // Only the clinic's own site, plus Google Maps for directions. Broad hosts like google.com or facebook.com
+  // also serve user-made pages (sites.google.com, docs.google.com forms), which a prompt-injected answer
+  // could use as a phishing link. Anything else is shown as plain text.
+  var CLINIC_HOST = /(^|\.)cosmodentalusa\.com$/;
+  function safeHttps(u) {
+    if (u.protocol !== "https:") return false;
+    if (CLINIC_HOST.test(u.hostname)) return true;
+    return (u.hostname === "www.google.com" || u.hostname === "google.com") && /^\/maps(\/|$)/.test(u.pathname);
+  }
   var TOKEN = /(https?:\/\/[^\s)\]]+|www\.[^\s)\]]+|\(?708\)?[\s.-]?345[\s.-]?6313)/g;
   function renderText(node, text) {
     node.textContent = "";
@@ -139,7 +147,7 @@
       } else {
         try {
           var u = new URL(/^www\./.test(raw) ? "https://" + raw : raw);
-          if (u.protocol === "https:" && SAFE_HOSTS.test(u.hostname)) {
+          if (safeHttps(u)) {
             a = el("a", { href: u.href, target: "_blank", rel: "noopener" }, raw);
           }
         } catch (e) {}
@@ -156,10 +164,10 @@
     links.forEach(function (l) {
       var u;
       try { u = new URL(l.url); } catch (e) { return; }
-      var ok = u.protocol === "tel:" || (u.protocol === "https:" && SAFE_HOSTS.test(u.hostname));
+      var ok = u.protocol === "tel:" || safeHttps(u);
       if (!ok) return;
       var attrs = { class: "cdw-link", href: u.href };
-      if (u.protocol === "https:" && !/cosmodentalusa\.com$/.test(u.hostname)) { attrs.target = "_blank"; attrs.rel = "noopener"; }
+      if (u.protocol === "https:" && !CLINIC_HOST.test(u.hostname)) { attrs.target = "_blank"; attrs.rel = "noopener"; }
       box.appendChild(el("a", attrs, l.label));
     });
     if (box.childNodes.length) node.appendChild(box);

@@ -1,8 +1,9 @@
-/** Remove emails and phone-like numbers before a question is logged. */
+/** Remove emails, dates and phone-like numbers (incl. SSNs) before a question is logged. */
 export function redact(text: string): string {
   return text
     .replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, "[email]")
-    .replace(/\+?\d[\d\s().-]{6,}\d/g, "[number]");
+    .replace(/\+?\d[\d\s().-]{6,}\d/g, "[number]")
+    .replace(/\b\d{1,4}\/\d{1,2}\/\d{2,4}\b/g, "[date]"); // dates of birth like 03/04/1985
 }
 
 /** Constant-time string compare for the admin token. */

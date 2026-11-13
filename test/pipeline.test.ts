@@ -72,6 +72,10 @@ describe("prompt + guardrails", () => {
   it("redacts emails and phone numbers before logging", () => {
     expect(redact("I'm jane@x.com, call 708-555-1234")).toBe("I'm [email], call [number]");
   });
+  it("redacts dates of birth and SSNs, but leaves the question readable", () => {
+    expect(redact("DOB 03/04/1985, SSN 123-45-6789, broken molar")).toBe("DOB [date], SSN [number], broken molar");
+    expect(redact("call 708-345-6313 on 11/14")).toBe("call [number] on 11/14");
+  });
   it("compares tokens safely", () => {
     expect(safeEqual("abc", "abc")).toBe(true);
     expect(safeEqual("abc", "abd")).toBe(false);
@@ -189,6 +193,16 @@ describe("end-to-end through the Worker", () => {
     const res = await call(env, `/api/admin/documents/${id}`, { method: "DELETE", headers: admin });
     expect(res.status).toBe(200);
     expect(env.VECTORS.store.size).toBe(0);
+  });
+
+  it("rejects malformed admin document metadata with 400, not 500", async () => {
+    const env = fakeEnv();
+    const post = (body: unknown) =>
+      call(env, "/api/admin/documents", { method: "POST", headers: admin, body: JSON.stringify(body) });
+    expect((await post({ title: "T", filename: 123, pages: 1 })).status).toBe(400);
+    expect((await post({ title: ["T"], filename: "a.pdf", pages: 1 })).status).toBe(400);
+    expect((await post({ title: "T", filename: "a.pdf", pages: 1.5 })).status).toBe(400);
+    expect((await post({ title: "T", filename: "a.pdf", pages: 2 })).status).toBe(201);
   });
 
   it("validates input", async () => {
