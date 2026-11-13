@@ -10,9 +10,23 @@ with the decision and reason. Resume numbers come from the summary table.
 | Manual review (2026-11-13) | 0 | 0 | 3 | 3 | 4 | 2 accepted, tracked in THREAT_MODEL.md |
 | `npm audit` (2026-11-13) | 0 | 0 | 0 | 0 | — | — |
 | Secret scan of full git history (2026-11-13) | 0 | 0 | 0 | 0 | — | 4 false positives (see below) |
-| CodeQL default setup | _fill in_ | | | | | |
-| Dependabot alerts | _fill in_ | | | | | |
-| GitHub secret scanning | _fill in_ | | | | | |
+| CodeQL default setup, javascript-typescript (2026-11-13) | 0 | 0 | 0 | 0 | — | — (0 open, 0 closed) |
+| Dependabot vulnerability alerts, npm + pip (2026-11-13) | 0 | 0 | 0 | 0 | — | — (0 open, 0 closed, 0 auto-dismissed) |
+| Dependabot malware alerts (2026-11-13) | 0 | 0 | 0 | 0 | — | — |
+| GitHub secret scanning + push protection (2026-11-13) | 0 | 0 | 0 | 0 | — | — |
+
+**Takeaway:** automated tools (SAST, SCA, secret scanning) found no issues; all 6 real findings came from
+manual review and threat modeling. They are design/logic flaws (an over-broad link allowlist reachable through
+prompt injection, incomplete PII redaction, a single static admin credential) that pattern-based scanners don't
+detect. Both layers are kept: scanners run on every push, and the threat model is revisited on design changes.
+
+**Scanner notes:**
+- CodeQL analyzed JavaScript/TypeScript (Worker, widget, admin). Python lives only in a Jupyter notebook, which
+  CodeQL does not analyze; its packages are still covered by Dependabot (`experiments/requirements.txt`).
+- Dependabot preset rule "dismiss low-impact alerts for development-scoped dependencies" is enabled. Rationale:
+  dev tools (wrangler, vitest, esbuild, typescript) never ship to visitors; the only runtime dependency is `unpdf`.
+- Automatic Dependabot security-update PRs are off on purpose: this is a live business site, so patches are
+  applied on a branch and tested before merge.
 
 ## Findings
 
